@@ -14,7 +14,7 @@
         instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
         wait: yes
-        group: "{{ security_group_id }}"
+        group_id: "{{ security_group_id }}"
         count: 1
         vpc_subnet_id: "{{ vpc_subnet_id }}"
         assign_public_ip: yes
@@ -27,7 +27,7 @@
         instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
         wait: yes
-        group: "{{ security_group_id }}"
+        group_id: "{{ security_group_id }}"
         count: 2
         vpc_subnet_id: "{{ vpc_subnet_id }}"
         assign_public_ip: yes
