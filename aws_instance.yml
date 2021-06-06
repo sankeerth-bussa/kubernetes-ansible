@@ -16,7 +16,7 @@
         wait: yes
         group: "{{ security_group_id }}"
         count: 1
-        vpc_subnet_id: "{{ vpc_sunet_id }}"
+        vpc_subnet_id: "{{ vpc_subnet_id }}"
         assign_public_ip: yes
         instance_tags: 
           Name: master
@@ -29,7 +29,7 @@
         wait: yes
         group: "{{ security_group_id }}"
         count: 2
-        vpc_subnet_id: "{{ vpc_sunet_id }}"
+        vpc_subnet_id: "{{ vpc_subnet_id }}"
         assign_public_ip: yes
         instance_tags: 
           Name: slave
