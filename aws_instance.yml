@@ -1,16 +1,17 @@
 - name: Launch EC2 instances
   hosts: localhost
   vars:
-    ami_image: 
-    security_group_id: 
-    vpc_subnet_id: 
-    instance_key: vm_key
+    ami_image: ami-04468e03c37242e1e
+    security_group_id: sg-0fd97709d8bdec1c7
+    vpc_subnet_id: vpc-15ef2e73
+    instance_type: t2.micro
+    instance_key: id_rsa
   tasks:
     
     - name: Launch EC2 instance for Kubernetes master
       amazon.aws.ec2:
         key_name: "{{ instance_key }}"
-        instance_type: t2.micro
+        instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
         wait: yes
         group: "{{ security_group }}"
@@ -23,7 +24,7 @@
     - name: Launch EC2 instance for Kubernetes slave
       amazon.aws.ec2:
         key_name: "{{ instance_key }}"
-        instance_type: t2.micro
+        instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
         wait: yes
         group: "{{ security_group }}"
