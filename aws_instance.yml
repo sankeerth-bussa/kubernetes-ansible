@@ -9,7 +9,7 @@
     
     - name: Launch EC2 instance for Kubernetes master
       amazon.aws.ec2:
-        key_name: {{ instance_key }}
+        key_name: "{{ instance_key }}"
         instance_type: t2.micro
         image: "{{ ami_image }}"
         wait: yes
@@ -22,7 +22,7 @@
         
     - name: Launch EC2 instance for Kubernetes master
       amazon.aws.ec2:
-        key_name: {{ instance_key }}
+        key_name: "{{ instance_key }}"
         instance_type: t2.micro
         image: "{{ ami_image }}"
         wait: yes
