@@ -3,7 +3,7 @@
   vars:
     ami_image: ami-04468e03c37242e1e
     security_group_id: sg-0fd97709d8bdec1c7
-    vpc_subnet_id: subnet-11358577
+    vpc_subnet_id: subnet-7e757c16
     instance_type: t2.micro
     instance_key: id_rsa
   tasks:
