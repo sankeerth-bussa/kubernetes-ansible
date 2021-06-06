@@ -1,8 +1,8 @@
 - name: Launch EC2 instances
   hosts: localhost
   vars:
-    ami_image: ami-04468e03c37242e1e
-    security_group_id: sg-0fd97709d8bdec1c7
+    ami_image: ami-010aff33ed5991201
+    security_group_id: sg-0eed0d7ed0916d197
     vpc_subnet_id: subnet-7e757c16
     instance_type: t2.micro
     instance_key: id_rsa
