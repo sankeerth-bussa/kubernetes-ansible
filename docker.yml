@@ -1,0 +1,16 @@
+- name: Kubernetes Cluster
+  hosts: 
+    - tag_Name_master
+    - tag_Name_slave
+  tasks:
+    
+    - name: Installing Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start Docker Service
+      service:
+        name: docker
+        state: started
+        enabled: yes

@@ -1,0 +1,34 @@
+- name: Launch EC2 instances
+  hosts: localhost
+  vars:
+    ami_image: 
+    security_group_id: 
+    vpc_subnet_id: 
+    instance_key: vm_key
+  tasks:
+    
+    - name: Launch EC2 instance for Kubernetes master
+      amazon.aws.ec2:
+        key_name: {{ instance_key }}
+        instance_type: t2.micro
+        image: "{{ ami_image }}"
+        wait: yes
+        group: "{{ security_group }}"
+        count: 1
+        vpc_subnet_id: "{{ vpc_sunet_id }}"
+        assign_public_ip: yes
+        instance_tags: 
+          Name: master
+        
+    - name: Launch EC2 instance for Kubernetes master
+      amazon.aws.ec2:
+        key_name: {{ instance_key }}
+        instance_type: t2.micro
+        image: "{{ ami_image }}"
+        wait: yes
+        group: "{{ security_group }}"
+        count: 2
+        vpc_subnet_id: "{{ vpc_sunet_id }}"
+        assign_public_ip: yes
+        instance_tags: 
+          Name: slave
