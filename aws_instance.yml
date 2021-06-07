@@ -27,7 +27,7 @@
         
     - name: Launch EC2 instance for Kubernetes slave
       amazon.aws.ec2:
-        spot_price: spot_price: "{{ price }}"
+        spot_price: "{{ price }}"
         key_name: "{{ instance_key }}"
         instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
