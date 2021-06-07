@@ -1,4 +1,4 @@
-- name: Kubernetes Cluster
+- name:  Docker Configuration
   hosts: 
     - tag_Name_master
     - tag_Name_slave

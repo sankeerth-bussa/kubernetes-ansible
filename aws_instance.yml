@@ -7,7 +7,7 @@
     instance_type: t2.micro
     instance_key: virginia_key
     aws_region: us-east-1
-    price: 0.0036
+    price: "0.0036"
   tasks:
     
     - name: Launch EC2 instance for Kubernetes master
