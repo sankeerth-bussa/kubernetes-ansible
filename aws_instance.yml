@@ -5,7 +5,7 @@
     security_group: launch-wizard-1
     vpc_subnet_id: subnet-09204307
     instance_type: t2.micro
-    instance_key: virginia_key.pem
+    instance_key: virginia_key
     aws_region: us-east-1
     price: 0.0036
   tasks:
