@@ -22,6 +22,7 @@
         vpc_subnet_id: "{{ vpc_subnet_id }}"
         region: "{{ aws_region }}"
         assign_public_ip: yes
+        instance_initiated_shutdown_behavior: terminate
         instance_tags: 
           Name: master
         
@@ -37,5 +38,6 @@
         vpc_subnet_id: "{{ vpc_subnet_id }}"
         region: "{{ aws_region }}"
         assign_public_ip: yes
+        instance_initiated_shutdown_behavior: terminate
         instance_tags: 
           Name: slave
