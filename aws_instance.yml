@@ -1,35 +1,41 @@
 - name: Launch EC2 instances
   hosts: localhost
   vars:
-    ami_image: ami-010aff33ed5991201
-    security_group_id: sg-0eed0d7ed0916d197
-    vpc_subnet_id: subnet-7e757c16
+    ami_image: ami-0d5eff06f840b45e9
+    security_group: launch-wizard-1
+    vpc_subnet_id: subnet-09204307
     instance_type: t2.micro
-    instance_key: id_rsa
+    instance_key: virginia_key.pem
+    aws_region: us-east-1
+    price: 0.0036
   tasks:
     
     - name: Launch EC2 instance for Kubernetes master
       amazon.aws.ec2:
+        spot_price: "{{ price }}"
         key_name: "{{ instance_key }}"
         instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
         wait: yes
-        group_id: "{{ security_group_id }}"
+        group: "{{ security_group }}"
         count: 1
         vpc_subnet_id: "{{ vpc_subnet_id }}"
+        region: "{{ aws_region }}"
         assign_public_ip: yes
         instance_tags: 
           Name: master
         
     - name: Launch EC2 instance for Kubernetes slave
       amazon.aws.ec2:
+        spot_price: spot_price: "{{ price }}"
         key_name: "{{ instance_key }}"
         instance_type: "{{ instance_type }}"
         image: "{{ ami_image }}"
         wait: yes
-        group_id: "{{ security_group_id }}"
+        group: "{{ security_group }}"
         count: 2
         vpc_subnet_id: "{{ vpc_subnet_id }}"
+        region: "{{ aws_region }}"
         assign_public_ip: yes
         instance_tags: 
           Name: slave
